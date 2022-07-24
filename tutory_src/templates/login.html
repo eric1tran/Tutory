@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel=stylesheet href="/static/style.css">
+    </head>
+    <body>
+        <h1> Login to your Tutory account</h1>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}<br>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}</p>
+            <button type="submit" id=login_button>Log In</button>
+        </form>
+        <div>
+            <a href=" {{ url_for ('register') }}">Create account</a>
+        </div>
+    </body>
+</html>

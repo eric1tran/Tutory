@@ -1,0 +1,7 @@
+#login_button, #register_account {
+    width: 225px;
+}
+
+.flashes {
+    color: red;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel=stylesheet href="/static/style.css">
+    </head>
+    <body>
+        <h1> Create a Tutory account</h1>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}<br>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {{ form.confirm_password.label }}<br>
+            {{ form.confirm_password(size=32) }}</p>
+            <button type="submit" id="register_account">Create Account</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <p class=flashes>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </body>
+</html>
