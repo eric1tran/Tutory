@@ -4,12 +4,14 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+from datetime import datetime
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from models import User
+from models import User, File
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -39,7 +41,9 @@ def register():
             flash('Passwords do not match')
         else:
             user = User(email, password, first_name, last_name)
+            file = File('File001', datetime.now(), '.jpg', '1')
             print(repr(user))
+            print(repr(file))
 
     return render_template('register.html', form=form)
 
