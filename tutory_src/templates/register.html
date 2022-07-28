@@ -8,6 +8,10 @@
         <h1> Create a Tutory account</h1>
         <form action="" method="POST">
             {{ form.hidden_tag() }}<br>
+            {{ form.first_name.label }}<br>
+            {{ form.first_name(size=32) }}<br>
+            {{ form.last_name.label }}<br>
+            {{ form.last_name(size=32) }}<br>
             {{ form.email.label }}<br>
             {{ form.email(size=32) }}<br>
             {{ form.password.label }}<br>

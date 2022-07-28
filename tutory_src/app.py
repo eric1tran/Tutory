@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, flash
 from user_forms import LoginForm, RegistrationForm
 from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from models import User
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -26,10 +32,15 @@ def register():
         email = form.email.data
         password = form.password.data
         confirm_password = form.confirm_password.data
-        print(f'{email=}, {password=}, {confirm_password=}')
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+
         if password != confirm_password:
-            errors = 'Passwords do not match'
             flash('Passwords do not match')
+        else:
+            user = User(email, password, first_name, last_name)
+            print(repr(user))
+
     return render_template('register.html', form=form)
 
 
