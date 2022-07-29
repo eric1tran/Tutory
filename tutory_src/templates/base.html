@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <hr>
+    </div>
+    {% block content %}{% endblock %}
+</html>

@@ -11,7 +11,15 @@
             {{ form.email.label }}<br>
             {{ form.email(size=32) }}<br>
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}</p>
+            {{ form.password(size=32) }}<br>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class=flashes>{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- {{ form.remember_me() }} {{ form.remember_me.label }} </p> -->
             <button type="submit" id=login_button>Log In</button>
         </form>
         <div>

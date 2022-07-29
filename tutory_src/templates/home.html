@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Home Page</title>
-        <link rel=stylesheet href="/static/style.css">
-    </head>
-    <body>
-        <h1> Home Page </h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Home page for {{ current_user.email }}</h1>
+{% endblock %}

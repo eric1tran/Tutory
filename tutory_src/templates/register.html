@@ -18,12 +18,12 @@
             {{ form.password(size=32) }}<br>
             {{ form.confirm_password.label }}<br>
             {{ form.confirm_password(size=32) }}</p>
-            <button type="submit" id="register_account">Create Account</button>
+            <button type="submit" id="register_button">Create Account</button>
         </form>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-            <p class=flashes>{{ message }}</p>
+            <div class=flashes>{{ message }}</div>
         {% endfor %}
         {% endif %}
         {% endwith %}

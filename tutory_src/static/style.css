@@ -1,7 +1,9 @@
-#login_button, #register_account {
-    width: 225px;
+#login_button, #register_button {
+    width: 235px;
+    margin: 10px 0;
 }
 
 .flashes {
     color: red;
+    padding: 0px;
 }
