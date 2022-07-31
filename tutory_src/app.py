@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-from user_forms import LoginForm, RegistrationForm
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -16,6 +15,7 @@ login = LoginManager(app)
 login.login_view = 'index'
 
 from models import User, File
+from user_forms import LoginForm, RegistrationForm
 
 @app.shell_context_processor
 def make_shell_context():
