@@ -57,15 +57,15 @@ def register():
         # POST with valid data
         email = form.email.data
         password = form.password.data
-        confirm_password = form.confirm_password.data
         first_name = form.first_name.data
         last_name = form.last_name.data
 
-        if password != confirm_password:
-            flash('Passwords do not match')
-        else:
-            user = User(email, password, first_name, last_name)
-            file = File('File001', datetime.now(), '.jpg', '1')
+        user = User(email, password, first_name, last_name)
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
+
+        return redirect(url_for('index'))
 
     return render_template('register.html', form=form)
 
