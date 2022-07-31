@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Log In</title>
+        <title>Sign up</title>
         <link rel=stylesheet href="/static/style.css">
     </head>
     <body>
@@ -18,14 +18,15 @@
             {{ form.password(size=32) }}<br>
             {{ form.confirm_password.label }}<br>
             {{ form.confirm_password(size=32) }}</p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <div class=flashes>{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <button type="submit" id="register_button">Create Account</button>
         </form>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-            <div class=flashes>{{ message }}</div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
+        <div>Already have an account? <a href='{{ url_for("index") }}'>Sign In</a></div>
     </body>
 </html>
