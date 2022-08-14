@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
     files = db.relationship('File', backref='owner', lazy='dynamic')
 
     def __init__(self, email, password, first_name, last_name):
-        self.email = email
+        self.email = email.lower()
         self.set_password(password)
         self.first_name = first_name
         self.last_name = last_name

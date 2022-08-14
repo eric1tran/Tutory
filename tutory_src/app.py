@@ -64,7 +64,6 @@ def register():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-
         return redirect(url_for('index'))
 
     return render_template('register.html', form=form)
@@ -76,10 +75,10 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/profile')
+@app.route('/account')
 @login_required
-def profile():
-    return "My Profile Settings"
+def account():
+    return render_template('account.html')
 
 
 @app.route('/logout')
